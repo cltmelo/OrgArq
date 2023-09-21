@@ -7,6 +7,6 @@
       - João Victor de Almeida - nusp: 13695424
   - Professor:
       - Eduardo do Valle Simões
-      - 
+
 ### Cada repositório coném nossos trabalhos/ atividades referentes à disciplina em questão
 
