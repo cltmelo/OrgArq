@@ -9,5 +9,4 @@
       - Eduardo do Valle Simões
       
 
-### Cada repositório coném nossos trabalhos/ atividades referentes à disciplina em questão
-
+### Este repositório contém as submissões para implementação do Trabalho 2, A.K.A "Processador", para a disciplina.
