@@ -5,6 +5,7 @@
       - Lucas Corlete Alves de Melo - nusp: 136676461
       - Jean Carlos Pereira CAssiano - nusp: 138640008
       - João Victor de Almeida - nusp: 13695424
+      - João Marcelo Ferreira Battaglini - nusp: 13835472
   - Professor:
       - Eduardo do Valle Simões
       
