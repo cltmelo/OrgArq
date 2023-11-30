@@ -1,4 +1,3 @@
-
 jmp main
 
 Letra: var #1
