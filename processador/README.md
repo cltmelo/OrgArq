@@ -13,33 +13,27 @@
 
 # Implementação da Nova instrução para o Processador
 
-Para esse trabalho iremos implementar um função denominada XCHG, que consiste em trocar conteúdo entre dois registradores de nosso processador. É importante que essa instrução tem uma óptica ilustrativa e com devidos ajustes podendo implementado no Processador-ICMC, pois precisa fazer os devidos ajustes,se necessario para que esteja de forma eficiente implementado no processador.
+Para este trabalho, implementaremos uma função denominada XCHG, que consiste em trocar o conteúdo entre dois registradores de nosso processador. É importante ressaltar que esta instrução possui um caráter ilustrativo e, com os devidos ajustes, poderá ser implementada no Processador-ICMC, visando seu funcionamento eficiente.
 
-Para fins de documentação irei enunciar o passo a passo realizado pelo grupo para essa implementação.
+Para fins de documentação, enunciarei o passo a passo realizado pelo grupo para essa implementação.
 
 ## 1.Modificando a defs.h
-Primeiramente foi definido na defs.h o opcode, o códgo em binário e a representação em String da nova representação. Para uma melhor eficiencia da implementação real seria necessario verificar se o "opcode" seja exclusivo e não entre em conflito com outros existentes
+Primeiramente, definimos no arquivo defs.h o opcode, o código em binário e a representação em string da nova instrução. Para garantir a eficiência da implementação real, é necessário verificar se o opcode é exclusivo e não entra em conflito com outros já existentes.
 
-### Modificação na defs.h
-
-
-#define XCHG_CODE 99
-
-
-#define XCHG "101010"
-
-
-#define XCHG_STR "XCHG"
+### Modificação na defs.h:
+    #define XCHG_CODE 99
+    #define XCHG "101010"
+    #define XCHG_STR "XCHG
 
 ## 2. Modificando a montador.c
 Para essa modificação temos os seguintes tópicos a ser seguido.
-1 - Modificamos a função DetectarLabels para reconhecer a nova instrução e contar os endereços de memória necessários.
-2 - Modificamos a função MontarInstrucoes para analisar a instrução e convertê-la em código de máquina.
-3 - Modificamos a função BuscaInstrucao para retornar o novo opcode quando a string de instrução for encontrada.
+#### 1 - Modificamos a função DetectarLabels para reconhecer a nova instrução e contar os endereços de memória necessários.
+#### 2 - Modificamos a função MontarInstrucoes para analisar a instrução e convertê-la em código de máquina.
+#### 3 - Modificamos a função BuscaInstrucao para retornar o novo opcode quando a string de instrução for encontrada.
 
 ### Abaixo na função 'DetectarLabels', adicionando o caso para 'XCHG_CODE':
 
-case XCHG_CODE:
+### case XCHG_CODE:
     parser_SkipUntil(','); 
     parser_SkipUntilEnd(); 
     end_cnt += 1; 
@@ -64,31 +58,61 @@ case XCHG_CODE:
     break;
 
 
-Em 'BuscaInstrucao', retornando a condição 'XCHG_STR':
+#### Em 'BuscaInstrucao', retornando a condição 'XCHG_STR':
     if (strcmp(str_tmp, XCHG_STR) == 0) {
     return XCHG_CODE;
-}
+    }
 
 ## Breakdown da implementação
-Para esse tópico irei explicar detalhamdamente cada aspecto dessa implementação no Processador.
-1.Modification in defs.h
-    a. Defining the Instruction Code
+Para esse tópico será explicado detalhamdamente cada aspecto dessa implementação no Processador.
 
-        #define XCHG_CODE 99
-            This line defines a unique identifier (opcode) for the XCHG instruction. The number 99 is arbitrary but should be unique and not conflict with existing opcodes.
+### 1.Modificação em defs.h
 
-    b. Defining the Binary Representation
+#### a. Definindo o Código de Instrução
 
-        #define XCHG "101010"
-            This line defines the binary representation of the XCHG instruction. The string "101010" is a placeholder and should be designed according to the instruction set architecture of the processor.
+#define XCHG_CODE 99
+    Esta linha define um identificador exclusivo (opcode) para a instrução XCHG. O número 99 é arbitrário, mas deve ser único e não entrar em conflito com os códigos de operação existentes.
 
-    c. Defining the Assembly Language Syntax
+#### b. Definindo a Representação Binária
 
-        #define XCHG_STR "XCHG"
-            This line defines how the instruction will be represented in assembly language. In this case, XCHG will be the mnemonic used in the assembly code.
+ #define XCHG "101010"
+     Esta linha define a representação binária da instrução XCHG. A string '101010' é um espaço reservado e deve ser projetada de acordo com a arquitetura do conjunto de instruções do processador.
+
+#### c. Definindo a sintaxe da linguagem assembly
+
+#define XCHG_STR "XCHG"
+    Esta linha estabelece como a instrução será representada em linguagem assembly. Neste caso, XCHG será o mnemônico utilizado no código assembly.
+
+### 2. Modificação em montador.c
+#### a. Análise de instruções e alocação de memória
+
+ Na função DetectarLabels, na instrução switch para op_code, o caso XCHG_CODE é adicionado:
+     caso XCHG_CODE:
+         Este caso trata da análise da instrução XCHG no código assembly. Garante que o montador reconheça o XCHG e saiba quantos endereços de memória esta instrução irá ocupar.
+         As funções parser_SkipUntil(',') e parser_SkipUntilEnd() são usadas para analisar os argumentos da instrução (registros, neste caso) e preparar para a próxima linha do código assembly.
+         fim_cnt += 1; indica que a instrução XCHG ocupa um local de memória.
+
+#### b. Montando a Instrução:
+ Na função MontarInstrucoes é adicionado mais um caso XCHG_CODE::
+    Este caso trata da conversão da instrução assembly XCHG em código de máquina.
+    A função BuscaRegistrador(str_tmp1) é utilizada para obter o código numérico do registro a partir de sua representação em string.
+    ConverteRegistrador(val1) converte o número do registrador em sua representação binária.
+    A função sprintf é usada para concatenar o opcode binário do XCHG com as representações binárias dos dois registradores.
+    parser_Write_Inst(str_msg, end_cnt) grava a instrução binária final na saída (o código de máquina).
+    fim_cnt += 1; incrementa o contador de instruções, indicando que um local de memória foi usado.
+
+#### c. Conversão de Opcode para Mnemônico:
+Na função que converte opcodes em mnemônicos (se tal função existir), um caso para XCHG_CODE deve retornar a string "XCHG".
+
+### Resumo da Instrução XCHG
+Operação: Troca o conteúdo de dois registros.
+Sintaxe de montagem: XCHG R1, R2
+Formato binário: 101010 seguido pelas representações binárias de R1 e R2.
+Uso de memória: ocupa um local de memória.
+Caso de uso: útil em cenários onde dois valores de registro precisam ser trocados de forma eficiente sem usar instruções adicionais ou armazenamento intermediário.
 
 ## Breve explicação final do seu funcionamento:
-A instrução XCHG troca o conteúdo de dois registradores. São necessários dois nomes de registro como argumentos, separados por vírgula. O montador traduz isso em uma única instrução de código de máquina. A representação binária começa com o opcode XCHG seguido pelas representações binárias dos dois registradores. A instrução foi projetada para ser executada em um ciclo de máquina (portanto, end_cnt += 1).
+A instrução XCHG troca o conteúdo de dois registradores. São necessários dois nomes de registradores como argumentos, separados por vírgula. O montador traduz isso em uma única instrução de código de máquina. A representação binária inicia com o opcode XCHG, seguido pelas representações binárias dos dois registradores. A instrução foi projetada para ser executada em um ciclo de máquina (portanto, end_cnt += 1).
 
 
 
