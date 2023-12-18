@@ -9,6 +9,7 @@
       - Lucas Sales Duarte - nusp: 11734490
       - João Marcelo Ferreira Battaglini - nusp: 13835472
       - Daniel Umeda Kuhn - nusp: 13676541
+      - Manoel Thomaz Gama da Silva Neto - nusp: 13676392
   
   - Professor:
       - Eduardo do Valle Simões
