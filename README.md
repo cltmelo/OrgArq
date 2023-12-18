@@ -8,6 +8,7 @@
       - Daniel Dias Silva Filho - nusp: 13677114
       - Lucas Sales Duarte - nusp: 11734490
       - João Marcelo Ferreira Battaglini - nusp: 13835472
+      - Daniel Umeda Kuhn - nusp: 13676541
   
   - Professor:
       - Eduardo do Valle Simões
