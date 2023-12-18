@@ -1,8 +1,5 @@
 ;Grupo:
-;	Carlos Nery Ribeiro
-;   Gabriel Ribeiro Rodrigues Dessotti
-;   Fernando Clarindo Cristóvão
-;   Pedro Manicardi Soares
+
 
 jmp main
 	
