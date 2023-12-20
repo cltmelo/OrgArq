@@ -46,7 +46,7 @@ Letra: var #1
 
 
 palavra_3: string "tio"   ;palavra de 3 digitos
-palavra_4: string "mito"   ;palavra de 4 digitos
+palavra_4: string "lula"   ;palavra de 4 digitos
 palavra_5: string "sagaz"   ;palavra de 5 digitos
 palavra_6: string "mister" 	 ;palavra de 6 digitos
 palavra_7: string "caráter"	  ;palavra de 7 digitos
