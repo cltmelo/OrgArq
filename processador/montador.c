@@ -1,13 +1,6 @@
 case XCHG_CODE:
     parser_SkipUntil(','); 
     parser_SkipUntilEnd(); 
-    end_cnt += 1; 
-    break;
-
-
-case XCHG_CODE:
-    parser_SkipUntil(','); 
-    parser_SkipUntilEnd(); 
     str_tmp1 = parser_GetItem_s();
     val1 = BuscaRegistrador(str_tmp1);
     free(str_tmp1);
