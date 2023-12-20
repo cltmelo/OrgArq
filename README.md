@@ -2,6 +2,7 @@
 ## Organização e Arquitetura de Computadores
   - Ambiente colaborativo de desenvolvimento às atividade da disciplina *SCC0902 - Organização e Aquitetura de Computadores*
   - Componetes do grupo:
+  - 
      -Lucas Corlete Alves de Melo - nusp: 136676461
     
     -Jean Carlos Pereira CAssiano - nusp: 138640008
