@@ -117,14 +117,14 @@ A instrução XCHG troca o conteúdo de dois registradores. São necessários do
 
 As alterações nos arquivos view.cpp, model.cpp, e mnemonicos.h refletem a implementação da instrução XCHG. Aqui estão os detalhes das mudanças:
 
-
+## 1.Modificando a view.cpp:
 	case XCHG: 
         sprintf(texto,"PC: %05d\t|	XCHG R%d, R%d			|	R%d <- R%d ; R%d <- R%d", 						pc, _rx, _ry, _rx, _ry, _ry, _rx);    
     break;
 
 
 Adiciona uma representação textual para a instrução XCHG no arquivo view.cpp. A mensagem indica que a instrução XCHG está sendo executada e fornece detalhes sobre os registradores envolvidos.
-
+## 1.Modificando a model.cpp:
     case XCHG:
         temp = reg[ry];
         reg[ry] = reg[rx];
@@ -132,8 +132,8 @@ Adiciona uma representação textual para a instrução XCHG no arquivo view.cpp
         break;
 
 Implementa a instrução XCHG no arquivo model.cpp. A instrução troca os valores dos registradores rx e ry.
-
-'#define XCHG 40'
+## 1.Modificando a Mneumonicos.h
+#define XCHG 40
 
 
 Define o código associado à instrução XCHG. Este código (40 no exemplo) será utilizado internamente para identificar e mapear a instrução XCHG no simulador.
