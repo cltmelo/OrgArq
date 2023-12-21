@@ -138,5 +138,4 @@ Implementa a instrução XCHG no arquivo model.cpp. A instrução troca os valor
 
 Define o código associado à instrução XCHG. Este código (40 no exemplo) será utilizado internamente para identificar e mapear a instrução XCHG no simulador.
 
-Essas alterações parecem consistentes com a adição da instrução XCHG no simulador, incluindo a representação visual, a lógica do modelo e a identificação única (40) para a instrução. Certifique-se de realizar testes adicionais para validar o comportamento correto da instrução no contexto geral do simulador.
-
+Essas alterações parecem consistentes com a adição da instrução XCHG no simulador, incluindo a representação visual, a lógica do modelo e a identificação única (40) para a instrução.
