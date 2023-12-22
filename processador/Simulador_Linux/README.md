@@ -1,13 +1,43 @@
-# Universisdade de São Paulo - São Carlos
-## Organização e Arquitetura de Computadores
-  - Ambiente colaborativo de desenvolvimento às atividade da disciplina *SCC0902 - Organização e Aquitetura de Computadores*
-  - Componetes do grupo:
-      - Lucas Corlete Alves de Melo - nusp: 136676461
-      - Jean Carlos Pereira CAssiano - nusp: 138640008
-      - João Victor de Almeida - nusp: 13695424
-  - Professor:
-      - Eduardo do Valle Simões
+# MANUAL
+
+udo isso foi testado em um Ubuntu 11.10  que acabei de instalar...
+
+A) Instalando o Simulador:
+	1) Instale o GTK: sudo apt-get install libgtk2.0-dev
+
+	2) Va' na pasta que contem os arquivos do simulador: "simulador_fonte"
+
+	3) Para compilar: sh compila.sh
+
+	4) Copie o executavel (simulador) para a pasta que deseja trabalhar
+
+	5) Confira se tem direito de execucao: [x]
+
+B) Instalando o Montador:
+	1) Va' na pasta que contem os arquivos do montador: "montador_fonte"
+
+	2) Para compilar: gcc *.c -o montador
+
+	3) Copie o executavel (montador) para a pasta que deseja trabalhar
+
+	4) Confira se tem direito de execucao: [x]
+		ls -l  montador     --> Mostra as permissoes!
+		-rw-r--r-- 1 root root 48147 mai 25 08:42 montador    
+		--> Da pra ver que nao tem permissao de executar [x]
+
+		sudo chmod +x /montador
+		ls -l  montador
+		-rrw-r--rwxr-xr-x 1 root root 48147 mai 25 08:42 /bin/montador
+		--> rrw-r--rwxr-xr-xAgora incluiu o [x]
+
+
+C) Montando um Programa em linguagem Assemby (*.ASM):
+	1) Para montar o codigo: ./montador seu_programa.asm arquivo.mif
+
+D) Simulando um Programa em linguagem Assemby (*.MIF)
+	1) ./sim arquivo.mif charmap.mif
       
+## Todos os arquivos estão no diretório ./Simulador_Linux/Teste: Para executar o teste da CPU com a funcao XCHG, abra o terminal e coloque o seguinte código: ./sim cpuram.mif charmap.mif
 
 ### Este repositório contém as submissões para implementação do Trabalho 2, A.K.A "Processador", para a disciplina.
 
